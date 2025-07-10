@@ -8,7 +8,7 @@ GET {{FirstAPI_HostAddress}}/api/books
 Accept: application/json
 
 ### Get a specific book by ID
-GET {{FirstAPI_HostAddress}}/api/books/1
+GET {{FirstAPI_HostAddress}}/api/books/2
 Accept: application/json
 
 ### Create a new book
@@ -16,11 +16,22 @@ POST {{FirstAPI_HostAddress}}/api/books
 Content-Type: application/json
 
 {
-  "title": "New Book Title",
+  "title": "New Book",
   "author": "New Author",
-  "publishedDate": 2023
+  "publishDate": "2023-10-01"
 }
 
 ### Update an existing book
-GET {{FirstAPI_HostAddress}}/api/numbers
+PUT {{FirstAPI_HostAddress}}/api/books/1
+Content-Type: application/json
+
+{
+  "title": "Updated Book Title",
+  "author": "Updated Author",
+  "publishedDate": "2023-10-01"
+}
+
+### Delete a book by ID
+DELETE {{FirstAPI_HostAddress}}/api/books/6
 Accept: application/json
+

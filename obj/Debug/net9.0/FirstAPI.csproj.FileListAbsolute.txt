@@ -62,3 +62,6 @@
 /Users/parani/Documents/dotnet-projects/FirstAPI/bin/Debug/net9.0/MySqlConnector.dll
 /Users/parani/Documents/dotnet-projects/FirstAPI/bin/Debug/net9.0/Pomelo.EntityFrameworkCore.MySql.dll
 /Users/parani/Documents/dotnet-projects/FirstAPI/obj/Debug/net9.0/FirstAPI.sourcelink.json
+/Users/parani/Documents/dotnet-projects/FirstAPI/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/parani/Documents/dotnet-projects/FirstAPI/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/parani/Documents/dotnet-projects/FirstAPI/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll

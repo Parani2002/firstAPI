@@ -10,7 +10,7 @@ namespace FirstAPI.Controller
     [ApiController]
     public class BooksController : ControllerBase
     {
-        static string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        //static string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         // private static List<Book> books = new List<Book>
         // {
         //     new Book { Id = 1, Title = "1984", Author = "George Orwell", PublishedDate = 1949 },
@@ -39,6 +39,56 @@ namespace FirstAPI.Controller
                 return NotFound();
             }
             return Ok(book);
+        }
+        [HttpPost]
+        public ActionResult<Book> CreateBook([FromBody] Book book)
+        {
+            if (book == null)
+            {
+                return BadRequest("Book cannot be null");
+            }
+
+            _context.Books.Add(book);
+            _context.SaveChanges();
+
+            return CreatedAtAction(nameof(GetBook), new { id = book.Id }, book);
+        }
+        [HttpPut("{id}")]
+        public ActionResult<Book> UpdateBook(int id, [FromBody] Book book)
+        {
+            if (book == null || book.Id != id)
+            {
+                return BadRequest("Book ID mismatch or book is null");
+            }
+
+            var existingBook = _context.Books.FirstOrDefault(b => b.Id == id);
+            if (existingBook == null)
+            {
+                return NotFound();
+            }
+
+            existingBook.Title = book.Title;
+            existingBook.Author = book.Author;
+            existingBook.PublishDate = book.PublishDate;
+
+            _context.Books.Update(existingBook);
+            _context.SaveChanges();
+
+            return Ok(existingBook);
+        }
+        [HttpDelete("{id}")]
+        public ActionResult DeleteBook(int id)
+        {
+            var book = _context.Books.FirstOrDefault(b => b.Id == id);
+            if (book == null)
+            {
+                return NotFound();
+            }
+
+            _context.Books.Remove(book);
+            _context.SaveChanges();
+
+            return NoContent();
         }
         
 
