@@ -1,0 +1,26 @@
+@FirstAPI_HostAddress = http://localhost:5255
+
+GET {{FirstAPI_HostAddress}}/weatherforecast
+Accept: application/json
+
+###
+GET {{FirstAPI_HostAddress}}/api/books
+Accept: application/json
+
+### Get a specific book by ID
+GET {{FirstAPI_HostAddress}}/api/books/1
+Accept: application/json
+
+### Create a new book
+POST {{FirstAPI_HostAddress}}/api/books
+Content-Type: application/json
+
+{
+  "title": "New Book Title",
+  "author": "New Author",
+  "publishedDate": 2023
+}
+
+### Update an existing book
+GET {{FirstAPI_HostAddress}}/api/numbers
+Accept: application/json
